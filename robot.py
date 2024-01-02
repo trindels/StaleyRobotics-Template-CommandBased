@@ -6,11 +6,15 @@ import RobotContainer
 
 class MyRobot(wpilib.TimedRobot):
     def robotInit(self):
+        # Start Logging using the built in DataLogManager
+        wpilib.DataLogManager.start()
+        wpilib.DriverStation.startDataLog(wpilib.DataLogManager.getLog())
+
         self.m_robotContainer = RobotContainer.RobotContainer()
-        hal.report(
-            hal.tResourceType.kResourceType_Framework,
-            hal.tInstances.kFramework_RobotBuilder
-        )
+        #hal.report(
+        #    hal.tResourceType.kResourceType_Framework,
+        #    hal.tInstances.kFramework_RobotBuilder
+        #)
 
     def robotPeriodic(self):
         commands2.CommandScheduler.getInstance().run()
