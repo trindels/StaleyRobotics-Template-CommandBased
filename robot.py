@@ -27,7 +27,8 @@ class MyRobot(wpilib.TimedRobot):
 
     def autonomousPeriodic(self): pass
     def autonomousExit(self):
-        self.m_autonomousCommand.cancel()
+        if self.m_autonomousCommand != None:
+            self.m_autonomousCommand.cancel()
 
     def teleopInit(self): pass
     def teleopPeriodic(self): pass
